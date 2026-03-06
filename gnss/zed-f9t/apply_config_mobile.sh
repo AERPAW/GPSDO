@@ -5,8 +5,6 @@ set -e
 DEV="/dev/ttyACM0"
 
 echo "Reset receiver to defaults"
-ubxtool -f $DEV -p CFG-CFG,0xffff,0xffff,0
-sleep 2
 ubxtool -f $DEV -p RESET
 sleep 3
 
@@ -17,7 +15,6 @@ ubxtool -f $DEV -z CFG-TMODE-MODE,0
 ubxtool -f $DEV -z CFG-TP-TP1_ENA,1
 ubxtool -f $DEV -z CFG-TP-SYNC_GNSS_TP1,1
 ubxtool -f $DEV -z CFG-TP-USE_LOCKED_TP1,1
-ubxtool -f $DEV -z CFG-TP-ALIGN_TO_TOW_TP1,1
 
 ubxtool -f $DEV -z CFG-TP-PERIOD_TP1,1000000
 ubxtool -f $DEV -z CFG-TP-PERIOD_LOCK_TP1,1000000
